@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Basic JS</title>
+    
+</head>
+<body>
+    <h1>Java script var ,Let,Const</h1>
+    <script>
+        var name="Alice";
+        console.log(name);//Alice
+
+        var name="BOb";
+        console.log(name);//Bob
+
+        let age=25;
+        console.log(age);//25
+        //let age=30 
+        age=30;
+        console.log(age);//30
+
+        const country="Thailand";
+        console.log(country);//thailand
+
+        function varLetConst(){
+            if(true){
+                var x=10;
+                let y=20;
+                const z=30;
+            }
+            console.log(x);//10
+            console.log(y);//error
+            console.log(z);//error
+        }
+        varLetConst();
+        
+    </script>
+</body>
+
+</html>
