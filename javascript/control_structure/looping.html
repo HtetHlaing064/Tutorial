@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript looping</title>
+    
+</head>
+<body>
+    <h1>Java Script Looping</h1>
+   <script>
+
+    //for loop
+    for(let i=0;i<5;i++){
+        console.log("for loop number:",i)
+    }
+
+    //while loop
+    let count=0;
+    while(count<5){
+        console.log("while loop number:",count);
+        count++;
+    }
+
+    //do while
+    let num=0;
+
+    do{
+        console.log("do while loop:",num);
+        num++;
+
+    }while(num<5)
+    //break and continue
+    for(let i=1;i<10;i++){
+        if(i===3){
+            continue; 
+        }
+        if(i===7){
+            break;
+        }
+        console.log("break anad continue:",i);
+    }
+   </script>
+</body>
+</html>
