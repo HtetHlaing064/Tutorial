@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task</title>
+    <style>
+      body {
+        background-color: aliceblue;
+        font-family: Arial,  sans-serif;
+        font-size: 16px;
+        margin: 0 auto;
+        max-width: 500px;
+        
+        
+      }
+
+       li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+      }
+      #textInput{
+        width: 300px;
+        padding: 10px;
+      }
+      #addBtn{       
+        padding: 10px;
+        font-size: 14px;
+        /* border: 0;
+        background-color: brown; */
+      }
+      #note{
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    
+    
+      <h2>✅ Task List</h2>
+      <input type="text" id="textInput" placeholder="Enter a task" />
+      <button id="addBtn">Add Task</button>
+      <p id="note">Click a task to mark as done. Right-click to delete it.</p>
+      <ul id="tasklist"></ul>
+    
+
+    <script>
+      const input = document.getElementById("textInput");
+      const addBtn = document.getElementById("addBtn");
+      const tasklist = document.getElementById("tasklist");
+
+      addBtn.addEventListener("click", () => {
+        const taskText = input.value.trim();
+        if (taskText === "") return;
+
+        const li = document.createElement("li");
+        li.textContent = taskText;
+
+        tasklist.appendChild(li);
+        input.value = "";
+      });
+
+      input.addEventListener("keypress", (e) => {
+        console.log(e.key);
+        if (e.key == "Enter") {
+          addBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html>
