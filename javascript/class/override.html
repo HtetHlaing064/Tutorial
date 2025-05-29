@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Override</title>
+    </head>
+    <body>
+        <h2>Override</h2>
+        <script>
+            class Animal{
+                speak(){
+                    console.log("Animal speak");
+                }
+            }
+
+            class Dog extends Animal{
+                speak(){
+                    console.log("Dog is darks");
+                }
+            }
+
+            const dog= new Dog();
+            dog.speak();
+            
+            
+
+        </script>
+    </body>
+</html>

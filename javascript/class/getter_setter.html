@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Getter & Setter Method</title>
+    </head>
+    <body>
+        <h2>Getter Setter Method</h2>
+        <script>
+            class Circle{
+                constructor(radius){
+                    this.radius=radius;
+                }
+
+
+                get area(){
+                    return Math.PI * this.radius ** 2;
+                }
+            }
+
+            const circle=new Circle(4);
+            console.log(circle.area);
+
+
+            class Circle2{
+                constructor (radius){
+                    this._radius=radius;
+                }
+
+                set radius(value){
+                    if(value>0){
+                        this._radius=value;
+                    }else{
+                        console.log("Radius must be positive");
+                    }
+                }
+
+                get radius(){
+                    return this._radius;
+                }
+            }
+            const c= new Circle2(5);
+            c.radius=3;
+            console.log(c.radius);
+            
+        </script>
+    </body>
+</html>

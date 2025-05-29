@@ -1,14 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Internal JS</title>
-  </head>
-  <body>
-    <button onclick="greet()">Click Me</button>
-    <script>
-      function greet() {
-        alert("Hello from internal JS");
-      }
-    </script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form class="registration-form">
+            <h2>Course Registration</h2>
+
+            <div class="section">
+                <h3>Personal Information</h3>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Demographics</h3>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                        <input type="radio" id="otherGender" name="gender" value="other">
+                        <label for="otherGender">Other</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Interests</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="design" name="interests" value="design">
+                        <label for="design">Design</label>
+                        <input type="checkbox" id="coding" name="interests" value="coding">
+                        <label for="coding">Coding</label>
+                        <input type="checkbox" id="marketing" name="interests" value="marketing">
+                        <label for="marketing">Marketing</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="">Select Country</option>
+                        <option value="usa">United States</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="australia">Australia</option>
+                        <option value="india">India</option>
+                        <option value="myanmar">Myanmar</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="form-group">
+                    <label for="shortBio">Short Bio</label>
+                    <textarea id="shortBio" name="shortBio" rows="4"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="register-button">Register</button>
+        </form>
+    </div>
+</body>
 </html>

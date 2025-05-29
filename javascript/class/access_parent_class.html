@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Class</title>
+  </head>
+  <body>
+    <h1>Access parent class</h1>
+    <script>
+      class Parent {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+
+      class Child extends Parent {
+        constructor(name, age) {
+          super(name);
+          this.age = age;
+        }
+
+        showInfo() {
+          console.log("Name:", this.name, "Age:", this.age);
+        }
+      }
+
+      const child = new Child("Alice", 25);
+      child.showInfo();
+
+      class Animal {
+        speak() {
+          console.log("Animal make a song");
+        }
+      }
+
+      class Dog extends Animal {
+        speak() {
+          super.speak();
+          console.log("Dog dark");
+        }
+      }
+
+      const dog = new Dog();
+      dog.speak();
+
+      class Parent2 {
+        constructor() {
+          this.role = "admin";
+        }
+      }
+      class Child2 extends Parent2 {
+        getRole() {
+          return this.role;
+        }
+      }
+
+      const child2 = new Child2();
+      console.log(child2.getRole());
+      
+    </script>
+  </body>
+</html>

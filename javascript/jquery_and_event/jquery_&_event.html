@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event</title>
+  </head>
+  <body>
+    <ul>
+      <li>document.querySelector</li>
+      <li>getElementById</li>
+      <li>classList</li>
+      <li>Changing HTML content and styles</li>
+      <li>Event handling (click, input, etc.)</li>
+      <li>Creating and removing elements</li>
+    </ul>
+
+    <p id="greeting">Hello!</p>
+    <div class="box">Box</div>
+    <h1>Heading</h1>
+    <button id="btn">Click Me</button>
+    <input type="text" id="nameInput" />
+    <p id="displayName"></p>
+    <div id="container"></div>
+    <script>
+      //getElementById
+      let para = document.getElementById("greeting");
+      //querySelector (CSS selector)
+      let box=document.querySelector(".box");
+
+      box.classList.add("highlight");
+      box.classList.remove("highlight");
+      box.classList.toggle("active");
+
+      //changing html content and style
+      let heading=document.querySelector("h1");
+      heading.textContent="New Heading";
+      heading.style.color="blue";
+      heading.style.font="30px";
+
+      //Event Headling 
+      //click Event
+        document.getElementById("btn").addEventListener("click", () => {
+        alert("Button clicked!");
+      });
+      //input event
+
+      let input=document.getElementById("nameInput");
+      let display=document.getElementById("displayName");
+
+      input.addEventListener("input",()=>{
+        display.textContent="Hello, "+ input.value;
+
+      });
+
+      //create element
+      let newPara=document.createElement("p");
+      newPara.textContent="This is a new Paragraph";
+      newPara.style.color="green";
+
+      //Add to Dm\om
+      document.getElementById("container").appendChild(newPara);
+
+      //Remove it after 3 second
+
+      setTimeout(()=>{
+        newPara.remove();
+
+      },3000);
+
+    </script>
+  </body>
+</html>

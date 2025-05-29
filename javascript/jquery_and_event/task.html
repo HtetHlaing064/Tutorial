@@ -5,43 +5,40 @@
     <style>
       body {
         background-color: aliceblue;
-        font-family: Arial,  sans-serif;
+        font-family: Arial, sans-serif;
         font-size: 16px;
         margin: 0 auto;
         max-width: 500px;
-        
-        
       }
 
-       li {
+      li {
         padding: 10px;
         border-bottom: 1px solid #ddd;
         cursor: pointer;
       }
-      #textInput{
+      #textInput {
         width: 300px;
         padding: 10px;
+        font-size: 16px;
+        
       }
-      #addBtn{       
+      #addBtn {
         padding: 10px;
         font-size: 14px;
         /* border: 0;
         background-color: brown; */
       }
-      #note{
+      #note {
         color: gray;
       }
     </style>
   </head>
   <body>
-    
-    
-      <h2>✅ Task List</h2>
-      <input type="text" id="textInput" placeholder="Enter a task" />
-      <button id="addBtn">Add Task</button>
-      <p id="note">Click a task to mark as done. Right-click to delete it.</p>
-      <ul id="tasklist"></ul>
-    
+    <h2>✅ Task List</h2>
+    <input type="text" id="textInput" placeholder="Enter a task" />
+    <button id="addBtn">Add Task</button>
+    <p id="note">Click a task to mark as done. Right-click to delete it.</p>
+    <ul id="tasklist"></ul>
 
     <script>
       const input = document.getElementById("textInput");
@@ -54,6 +51,15 @@
 
         const li = document.createElement("li");
         li.textContent = taskText;
+
+        // li.addEventListener("click", () => {
+        //   li.classList.toggle("done");
+        // });
+
+        // li.addEventListener("contextmenu", (e) => {
+        //   e.preventDefault();
+        //   li.remove();
+        // }); 
 
         tasklist.appendChild(li);
         input.value = "";

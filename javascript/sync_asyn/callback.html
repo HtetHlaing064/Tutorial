@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Synchronous</title>
+  </head>
+  <body>
+    <script>
+      function getData(callback){
+        setTimeout(() => {
+            callback("Here is your data");
+        },3000);
+      }
+
+      getData((data)=>{
+        console.log(data);
+      });
+
+    </script>
+  </body>
+</html>
