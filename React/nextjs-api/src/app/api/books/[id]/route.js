@@ -1,21 +1,29 @@
 import { NextResponse } from "next/server";
 import * as yup from "yup";
+import { prisma } from "@/lib/prisma";
 
 const schema = yup.object().shape({
   title: yup.string().required("Title is required"),
-  author: yup.string().required("fatherName is required"),
-  year: yup.string().required("Year is required"),
+  author: yup.string().required("Author is required"),
+  published_year: yup.number().required("Year is required"),
 });
-
+//Book Update API
 export async function PUT(req, { params }) {
   try {
-    const bookId = params.id;
+    const bookId =parseInt(params.id) ;
     const body = await req.json();
-    await schema.validate(body, { abortEarly: false });
+    const validatedData = await schema.validate(body, {
+      abortEarly: false,
+      stripUnknown: true,
+    });
+    const books = await prisma.book.update({
+      where: { id: bookId },
+      data: validatedData,
+    });
+
     return NextResponse.json({
-      message: "Student is successfully update",
+      message: "Book is successfully update",
       bookId,
-      bodyData: body,
     });
   } catch (error) {
     if (error.name === "ValidationError") {
@@ -37,25 +45,35 @@ export async function PUT(req, { params }) {
     );
   }
 }
-
+//Book Delete API
 export async function DELETE(req, { params }) {
-  const bookId = params.id; //Get URL params field
-  
+  try{
+    const bookId = parseInt(params.id); //Get URL params field
+  await prisma.book.delete({
+      where: { id: bookId },
+    });
   return NextResponse.json({
     meassage: "Book is successfully deleted",
     bookId,
-    
   });
+  }catch (error) {
+    return NextResponse.json(
+      {
+        message: "Book not found or Student detail is fail",
+      },
+      {
+        status: 404,
+      }
+    );
+  }
 }
-
+//Book Detail API
 export async function GET(req, { params }) {
-  const bookId = params.id;
-  const book = {
-    id: bookId,
-    title: "Wuthering Heights",
-    author: "Emily Brontë ",
-    gender: "Male",
-    year: 1847,
-  };
+  const bookId = parseInt(params.id);
+  const book = await prisma.book.findUnique({
+    where: {
+      id: bookId,
+    },
+  });
   return NextResponse.json(book);
 }

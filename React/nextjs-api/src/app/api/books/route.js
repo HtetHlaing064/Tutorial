@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import * as yup from "yup";
+import { prisma } from "@/lib/prisma";
 
 const BookData = [
   {
@@ -27,20 +28,25 @@ const BookData = [
 const schema = yup.object().shape({
   title: yup.string().required("Title is required"),
   author: yup.string().required("Author is required"),
-  year: yup.string().required("Year is required"),
+  published_year: yup.number().required("Year is required"),
 });
 
+//Book List
 export async function GET() {
-  return NextResponse.json({ BookData });
+  const books = await prisma.book.findMany();
+  return NextResponse.json({ books });
 }
-
+//Book Create API
 export async function POST(req) {
   try {
     const body = await req.json();
-    await schema.validate(body, { abortEarly: false });
+    const validatedData=await schema.validate(body, { abortEarly: false });
+    const books= await prisma.book.create({
+      data:validatedData
+    })
     return NextResponse.json({
       message: "Book is successfully createed",
-      bodyData: body,
+      book:books
     });
   } catch (error) {
     if (error.name === "ValidationError") {
